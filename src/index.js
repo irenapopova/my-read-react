@@ -5,10 +5,6 @@ import App from './App'
 import './index.css'
 
 
-/*
-I import the router above and here I'm putting <App /> 
-* between <BrowserRouter> tags
-*/
 
 ReactDOM.render(
     <BrowserRouter>

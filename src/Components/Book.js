@@ -2,13 +2,7 @@ import React, { Component } from 'react'
 
 class Book extends Component {
     render () {
-        /*
-         * hasThumbnail variable is used to deal with the fact that not all books
-         * have a thumbnail image. When we search for a book the variable checks 
-         * whether it has a thumbnail and either displays it by updating the url property
-         * in the book-cover class below or shows a white empty page 
-         * in the place of thumbnail. 
-         */
+        
         let hasThumbnail
         if (this.props.book.imageLinks) {
             hasThumbnail = this.props.book.imageLinks.thumbnail

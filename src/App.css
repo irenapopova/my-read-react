@@ -5,11 +5,7 @@ body {
   line-height: 1.5;
 }
 body, .app {
- /* 
-  * background-image: url('../src/Media/hush-naidoo-498053-unsplash.jpg');
-  * background-position: center;
-  * opacity: 0.8; 
-  */
+
  background: linear-gradient(to bottom right, #ffffcc 0%, rgb(15, 189, 228) 150%);
 }
 

@@ -16,27 +16,16 @@ class MainPage extends Component {
                 <div className="bookshelf-books">
                   <ol className="books-grid">
                     {
-                      /* 
-                      * I'm filtering the books array to get only the books
-                      * in the "currentlyReading" shelf and then I'm mapping through
-                      * each of them to display.
-                      * This is done similarly for the other shelves.  
-                      */
+                      
+
                       this.props.books.filter(book => book.shelf === 'currentlyReading')
                       .map(book => (
                         <li key={book.id} >
                           <Book 
                             book={book}
                             changeShelf={this.props.changeShelf}
-                            /* 
-                            * Creation of currentShelf in order to set a default value.
-                            * Doing this in all three selves, "currentlyReading", 
-                            * "wantToRead", and "read".
-                            * The currentShelf value is accessible via props so I can use it
-                            * in Book.js.
-                            * For future reference: 
-                            * https://reactjs.org/docs/forms.html#why-select-value
-                            */
+                            
+
                             currentShelf="currentlyReading"
                           />
                         </li>
@@ -87,11 +76,7 @@ class MainPage extends Component {
           </div>
           <div className="open-search">
 
-            {/*
-            Link is like the <a></a> tag and it is used here to be able to move
-            from one component into another.
-            It is imported from 'react-router-dom'.
-            */}
+            
             <Link 
             to="/search"
             >Add a book</Link>
