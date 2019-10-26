@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Book from '../Components/Book'
+import Footer from '../Components/Footer'
 
 class MainPage extends Component {
     render () {
@@ -41,6 +42,7 @@ class MainPage extends Component {
                     {
                       this.props.books.filter(book => book.shelf === 'wantToRead')
                       .map(book => (
+                      
                         <li key={book.id} >
                           <Book 
                             book={book}
@@ -81,7 +83,7 @@ class MainPage extends Component {
             to="/search"
             >Add a book</Link>
           </div>
-        
+        <Footer/>
         </div>
       );
     }

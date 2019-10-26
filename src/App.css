@@ -7,6 +7,7 @@ body {
 body, .app {
 
  background: linear-gradient(to bottom right, #ffffcc 0%, rgb(15, 189, 228) 150%);
+
 }
 
 /* main page */
@@ -38,9 +39,16 @@ body, .app {
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #004a66;
-  border-top: 1px solid #004a66;
+  
+  border-top:1px solid blue;
   color: #004a66;
+  padding: 8px;
+  border-radius: 13px;
+  border: 5px solid;
+  text-align: center;
+  background-color: red;
+  text-transform: uppercase;
+
 }
 .bookshelf-books {
   text-align: center;
@@ -176,4 +184,16 @@ body, .app {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+/* Footer */
+.footer {
+  background-color: rgb(3, 93, 126);
+  width: 100%;
+
+
+}
+/* select h2 inside of footer, the arrow only selects the first layer of children */
+.footer>h2{
+  margin: 0;
+  padding: 1rem;
 }

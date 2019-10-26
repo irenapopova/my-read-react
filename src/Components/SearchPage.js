@@ -96,18 +96,27 @@ class SearchPage extends Component {
                 
                     <div className="search-books-input-wrapper">
                     {/*
-                    The search from BooksAPI is limited to a particular set of search terms.
-                    
+                    NOTES: The search from BooksAPI is limited to a particular set of search terms.
+                    You can find these search terms here:
+                    https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
+
+                    the BooksAPI.search method DOES search by title or author. 
+                
+                    Every search is limited by search terms.
                     */}
                         <input 
                         type="text"
                         placeholder="Search by title or author"
                         /* 
-                        
+                        * The "value" property is necessary otherwise the input field
+                        * becomes "Uncontrolled", an element that behaves as the usual
+                        * HTML input element.
                         */
                         value={this.state.query}
-                        
-
+                        /*
+                        * When writing in the Search field, the query state changes
+                        * according to the value 
+                        */
                         onChange={(e) => this.updateQuery(e.target.value)}
                         />
                     </div>
@@ -128,7 +137,10 @@ class SearchPage extends Component {
                             let shelf = "none"
                             /* 
                             * Mapping through all the "books".
-                            
+                            * If a matched book does not belong to the books i.e. to 
+                            * a category ("shelf"), then this book's shelf will get 
+                            * the value "none". Otherwise, it gets the shelf value 
+                            * that the book already has in "books".
                             */
                             this.props.books.forEach(book => {
                                 if (book.id !== matchedBook.id) {

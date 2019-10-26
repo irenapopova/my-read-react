@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Shelves from "./Components/Shelves"
 
 import SearchPage from './Components/SearchPage'
 import MainPage from './Components/MainPage'
@@ -38,7 +39,9 @@ class BooksApp extends Component {
   
 
   render() {
+    
     return (
+    
       <div className="app">
 
         
@@ -46,6 +49,11 @@ class BooksApp extends Component {
           <MainPage
             books={this.state.books}
             changeShelf={this.changeShelf}
+          />
+        )}/>
+        
+        <Route exact path="/shelves" render={() => (
+          <Shelves
           />
         )}/>
 
