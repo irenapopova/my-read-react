@@ -10,30 +10,45 @@ import './App.css';
 
 class BooksApp extends Component {
   
+  // split books into multiple arrays to make tracking the state easier and faster
   state = {
-    books: []
+    books: [],
+    currentlyReading: [],
+    wantToRead: [],
+    read: [],
+
   }
 
   
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      this.setState({ books: books })
+      // put books in the right state array
+      this.setState({ books: books || [], currentlyReading: books.filter(book => book.shelf === 'currentlyReading') || [], wantToRead: books.filter(book => book.shelf === 'wantToRead') || [], read: books.filter(book => book.shelf === 'read') || []}, ()=>console.dir(this.state)) 
     }
-    )
+    ).catch(error=>console.log(error))
   }
   
 
   
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf)
+  //update the state
+  const moveBook = book;
+  moveBook.shelf=shelf;
+//select state key dynamically
+    this.setState({
+      [book.shelf] : this.state[book.shelf].filter(currentBook=>currentBook!=book),
+      [shelf] : [...this.state[shelf], moveBook]
 
+    })
+   
   
     
-    BooksAPI.getAll().then((books) => {
+    /* BooksAPI.getAll().then((books) => {
       this.setState({ books: books })
     }
-    )
+    ) */
   }
 
   
@@ -47,7 +62,8 @@ class BooksApp extends Component {
         
         <Route exact path="/" render={() => (
           <MainPage
-            books={this.state.books}
+
+            {...this.state}
             changeShelf={this.changeShelf}
           />
         )}/>
