@@ -191,9 +191,25 @@ body, .app {
   width: 100%;
 
 
+
 }
 /* select h2 inside of footer, the arrow only selects the first layer of children */
-.footer>h2{
-  margin: 0;
-  padding: 1rem;
+.footer{
+  margin: 10;
+  padding-bottom: 10px;
+  float:right;
+
+}
+
+.word{
+    display: inline-flex;
+    padding-top: 10px;
+    padding-right: 50px;
+}
+
+.img{
+  display: inline-flex;
+  padding-top: 10px;
+  padding-right: 50px;
+  margin: 20px;
 }
